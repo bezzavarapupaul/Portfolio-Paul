@@ -3,98 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul Babu's Portfolio</title>
+    <title>Paul Babu - Developer Profile</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <div class="logo">DevProfile</div>
+            <nav class="nav-menu">
+                <a href="#profile" class="nav-link">Profile</a>
+                <a href="#stats" class="nav-link">Statistics</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Paul Babu</h1>
-            <p>Full Stack Web Developer (MERN)</p>
-            <a href="#projects" class="btn">View Projects</a>
+    <div class="container">
+        <!-- Main Layout: Sidebar + Content -->
+        <div class="layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="profile-card">
+                    <!-- Profile Image -->
+                    <div class="profile-image">
+                        <img src="https://via.placeholder.com/150" alt="Profile Photo">
+                    </div>
+
+                    <!-- Profile Info -->
+                    <div class="profile-info">
+                        <h1 class="profile-name">BEZZAVARAPU PAUL<br>BABU</h1>
+                        <p class="profile-username">@paulbabu</p>
+                        <div class="profile-status">
+                            <span class="status-badge active"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+
+                    <!-- Edit Button -->
+                    <button class="btn-edit-profile">Edit Profile</button>
+
+                    <!-- Bio -->
+                    <div class="profile-bio">
+                        <p>A TECHNOCRAT TRYING TO HUNT A<br>RESPECTABLE PACKAGE</p>
+                    </div>
+
+                    <!-- Location & Education -->
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>India</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>NRI Institute of Technology</span>
+                        </div>
+                    </div>
+
+                    <!-- Community Stats -->
+                    <div class="community-stats">
+                        <h3>Community Stats</h3>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <i class="fas fa-eye"></i>
+                                <div class="stat-content">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Views</span>
+                                </div>
+                            </div>
+                            <div class="stat-time">Last week 0</div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="stat-content">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Solution</span>
+                                </div>
+                            </div>
+                            <div class="stat-time">Last week 0</div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <i class="fas fa-comments"></i>
+                                <div class="stat-content">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Discuss</span>
+                                </div>
+                            </div>
+                            <div class="stat-time">Last week 0</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Top Stats Row -->
+                <section class="top-stats" id="stats">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>Contest Rating</h3>
+                        </div>
+                        <div class="stat-body">
+                            <div class="rating-large">1,456</div>
+                            <div class="rating-details">
+                                <span class="detail">Global Ranking <strong>480,235</strong></span>
+                                <span class="detail">Attended <strong>16</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>Top</h3>
+                        </div>
+                        <div class="stat-body">
+                            <div class="rating-large">60.3%</div>
+                            <p class="stat-description">Percentile in recent contest</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-section">
+                    <!-- Rating Trend Chart -->
+                    <div class="chart-card">
+                        <h3>Rating Trend</h3>
+                        <canvas id="ratingChart"></canvas>
+                    </div>
+
+                    <!-- Problem Distribution & Badges -->
+                    <div class="side-cards">
+                        <!-- Problem Distribution -->
+                        <div class="chart-card problems-card">
+                            <h3>Problems Solved</h3>
+                            <div class="doughnut-container">
+                                <canvas id="problemsChart"></canvas>
+                                <div class="doughnut-center">
+                                    <div class="doughnut-value">383</div>
+                                    <div class="doughnut-label">Solved</div>
+                                </div>
+                            </div>
+                            <div class="difficulty-breakdown">
+                                <div class="difficulty-item">
+                                    <span class="difficulty-label">Easy</span>
+                                    <span class="difficulty-count">180/918</span>
+                                </div>
+                                <div class="difficulty-item">
+                                    <span class="difficulty-label">Med.</span>
+                                    <span class="difficulty-count">181/1973</span>
+                                </div>
+                                <div class="difficulty-item">
+                                    <span class="difficulty-label">Hard</span>
+                                    <span class="difficulty-count">22/895</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badges -->
+                        <div class="chart-card badges-card">
+                            <div class="badges-header">
+                                <h3>Badges</h3>
+                                <span class="badge-count">4</span>
+                            </div>
+                            <div class="badges-grid">
+                                <div class="badge-item">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="badge-item">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="badge-item">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="badge-item">
+                                    <i class="fas fa-lightning-bolt"></i>
+                                </div>
+                            </div>
+                            <p class="recent-badge">Most Recent Badge: 100 Days Badge 2024</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Submission Activity -->
+                <section class="activity-section">
+                    <h3>5 submissions in the past one year</h3>
+                    <div class="heatmap">
+                        <div class="heatmap-row">
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #c6e48b;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                        </div>
+                        <div class="heatmap-row">
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                        </div>
+                        <div class="heatmap-row">
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                        </div>
+                        <div class="heatmap-row">
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                            <div class="heatmap-cell" style="background-color: #85e89d;"></div>
+                            <div class="heatmap-cell" style="background-color: #ebedf0;"></div>
+                        </div>
+                    </div>
+                    <div class="activity-stats">
+                        <span>Total active days: 3</span>
+                        <span>Max streak: 1</span>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section class="projects-section" id="projects">
+                    <h2>Featured Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3>Live Coder - Online Code Editor</h3>
+                            <p>Developed a feature-rich code editor using React.js, integrating CodeMirror for an intuitive coding experience.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">CodeMirror</span>
+                                <span class="tag">Web</span>
+                            </div>
+                            <a href="https://pauls-livecoder-app.netlify.app/" target="_blank" class="project-link">View Live →</a>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Expense Tracker</h3>
+                            <p>Created a full-featured expense tracker using Node.js and Express for backend, and MongoDB for data storage.</p>
+                            <div class="project-tags">
+                                <span class="tag">MERN</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Finance</span>
+                            </div>
+                            <a href="https://expense-tracker-bgy1.onrender.com/" target="_blank" class="project-link">View Live →</a>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Memory Bricks Game</h3>
+                            <p>Developed an interactive memory game using HTML, CSS, and JavaScript with engaging animations and challenging gameplay.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Game</span>
+                                <span class="tag">Animation</span>
+                            </div>
+                            <a href="https://pauls-memory-bricks.netlify.app/" target="_blank" class="project-link">View Live →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Achievements Section -->
+                <section class="achievements-section" id="achievements">
+                    <h2>Achievements & Certifications</h2>
+                    <ul class="achievements-list">
+                        <li><span class="achievement-icon">🥈</span> Secured 2nd prize in the BUG BEATERS Competition at SAHE University.</li>
+                        <li><span class="achievement-icon">🥇</span> 1st Prize Winner in the Diwali Blast Event for coding Diwali crackers.</li>
+                        <li><span class="achievement-icon">🏆</span> First place in the InstaMaze event at CIS' SOIREE 2K24.</li>
+                        <li><span class="achievement-icon">💻</span> LeetCode Rating of 1456 with over 370 problems solved.</li>
+                        <li><span class="achievement-icon">📜</span> Java (NPTEL Certification) - Intermediate Level</li>
+                    </ul>
+                </section>
+
+                <!-- Skills Section -->
+                <section class="skills-section">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Frontend</h4>
+                            <div class="skill-list">
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Backend</h4>
+                            <div class="skill-list">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Express</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">REST APIs</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <div class="skill-list">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">C</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Platforms</h4>
+                            <div class="skill-list">
+                                <span class="skill-tag">Git/GitHub</span>
+                                <span class="skill-tag">VS Code</span>
+                                <span class="skill-tag">Netlify</span>
+                                <span class="skill-tag">Render</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section class="contact-section" id="contact">
+                    <h2>Get In Touch</h2>
+                    <p class="contact-intro">Feel free to reach out for collaboration or just a friendly hello!</p>
+                    <div class="contact-methods">
+                        <a href="mailto:bezzavarapupaulbabu@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: bezzavarapupaulbabu@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/paulbabu-bezzavarapu-157437254/" target="_blank" class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://leetcode.com/u/bezzavarapupaulbabu/" target="_blank" class="contact-item">
+                            <i class="fas fa-code"></i>
+                            <span>LeetCode</span>
+                        </a>
+                        <a href="https://github.com/paulbabu" target="_blank" class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </section>
+            </main>
         </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a passionate web developer with expertise in the MERN stack. I love building dynamic and scalable web applications that solve real-world problems.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>MERN Stack (MongoDB, Express, React, Node.js)</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Java (NPTEL Certification), Python, C</li>
-            <li>Version Control (Git, GitHub)</li>
-            <li>Responsive Web Design</li>
-            <li>Problem Solving (Intermediate DSA)</li>
-        </ul>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <ul>
-            <li>Secured 2nd prize in the BUG BEATERS Competition at SAHE University.</li>
-            <li>1st Prize Winner in the Diwali Blast Event for coding Diwali crackers.</li>
-            <li>First place in the InstaMaze event at CIS' SOIREE 2K24.</li>
-            <li>LeetCode Rating of 1456 with over 370 problems solved.</li>
-        </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-list">
-            <div class="project">
-                <h3>Live Coder - Online Code Editor</h3>
-                <p>Developed a feature-rich code editor using React.js, integrating CodeMirror for an intuitive coding experience. <a href="https://pauls-livecoder-app.netlify.app/" target="_blank">View Live</a></p>
-            </div>
-            <div class="project">
-                <h3>Expense Tracker</h3>
-                <p>Created a full-featured expense tracker using Node.js and Express for backend, and MongoDB for data storage. <a href="https://expense-tracker-bgy1.onrender.com/" target="_blank">View Live</a></p>
-            </div>
-            <div class="project">
-                <h3>Memory Bricks Game</h3>
-                <p>Developed an interactive memory game using HTML, CSS, and JavaScript with engaging animations. <a href="https://your-game-link.com" target="_blank">View Live</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:bezzavarapupaulbabu@gmail.com">bezzavarapupaulbabu@gmail.com</a></p>
-        <div class="contact-icons">
-            <a href="https://leetcode.com/u/bezzavarapupaulbabu/" target="_blank" class="icon leetcode" aria-label="LeetCode">
-                <i class="fab fa-code"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/paulbabu-bezzavarapu-157437254/" target="_blank" class="icon linkedin" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:bezzavarapupaulbabu@gmail.com" class="icon email" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Paul Babu. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
