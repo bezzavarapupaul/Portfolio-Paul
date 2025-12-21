@@ -332,6 +332,29 @@ header {
     gap: 20px;
 }
 
+.about-card {
+    grid-column: 1;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about-content p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0;
+}
+
+.about-content p:first-child {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
 .chart-card {
     background-color: #ffffff;
     border-radius: 8px;
