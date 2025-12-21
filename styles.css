@@ -184,6 +184,10 @@ header {
     color: #4a5568;
 }
 
+.detail-item span {
+    font-size: 1.2rem;
+}
+
 .detail-item i {
     color: #1e90ff;
     width: 16px;
@@ -218,6 +222,11 @@ header {
     align-items: center;
     gap: 8px;
     color: #4a5568;
+}
+
+.icon-stat {
+    font-size: 1.2rem;
+    min-width: 20px;
 }
 
 .stat-item i {
@@ -342,6 +351,45 @@ header {
     max-height: 250px;
 }
 
+/* ============ Simple Chart Styles ============ */
+.simple-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 200px;
+    gap: 8px;
+}
+
+.chart-bar {
+    width: 30px;
+    background: linear-gradient(180deg, #1e90ff, #42a5f5);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    background: linear-gradient(180deg, #1a73e8, #1e90ff);
+}
+
+/* ============ Doughnut Chart ============ */
+.doughnut-chart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: conic-gradient(
+        #7cb342 0deg 171deg,
+        #ffa726 171deg 342deg,
+        #ef5350 342deg 360deg
+    );
+}
+
+.doughnut-segment {
+    position: absolute;
+    border-radius: 50%;
+}
+
 .side-cards {
     display: flex;
     flex-direction: column;
@@ -433,7 +481,7 @@ header {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: all 0.3s ease;
 }
 
@@ -722,6 +770,11 @@ header {
     transition: all 0.3s ease;
 }
 
+.contact-icon {
+    font-size: 1.8rem;
+    display: block;
+}
+
 .contact-item:hover {
     border-color: #1e90ff;
     box-shadow: 0 2px 8px rgba(30, 144, 255, 0.15);
@@ -730,10 +783,6 @@ header {
 
 .contact-item i {
     font-size: 1.5rem;
-}
-
-.contact-item span {
-    font-size: 0.9rem;
 }
 
 /* ============ Footer ============ */

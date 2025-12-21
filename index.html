@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul Babu - Developer Profile</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -55,11 +53,11 @@
                     <!-- Location & Education -->
                     <div class="profile-details">
                         <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="icon-marker">📍</span>
                             <span>India</span>
                         </div>
                         <div class="detail-item">
-                            <i class="fas fa-graduation-cap"></i>
+                            <span class="icon-education">🎓</span>
                             <span>NRI Institute of Technology</span>
                         </div>
                     </div>
@@ -69,7 +67,7 @@
                         <h3>Community Stats</h3>
                         <div class="stat-row">
                             <div class="stat-item">
-                                <i class="fas fa-eye"></i>
+                                <span class="icon-stat">👁️</span>
                                 <div class="stat-content">
                                     <span class="stat-value">0</span>
                                     <span class="stat-label">Views</span>
@@ -79,7 +77,7 @@
                         </div>
                         <div class="stat-row">
                             <div class="stat-item">
-                                <i class="fas fa-check-circle"></i>
+                                <span class="icon-stat">✓</span>
                                 <div class="stat-content">
                                     <span class="stat-value">0</span>
                                     <span class="stat-label">Solution</span>
@@ -89,7 +87,7 @@
                         </div>
                         <div class="stat-row">
                             <div class="stat-item">
-                                <i class="fas fa-comments"></i>
+                                <span class="icon-stat">💬</span>
                                 <div class="stat-content">
                                     <span class="stat-value">0</span>
                                     <span class="stat-label">Discuss</span>
@@ -134,7 +132,15 @@
                     <!-- Rating Trend Chart -->
                     <div class="chart-card">
                         <h3>Rating Trend</h3>
-                        <canvas id="ratingChart"></canvas>
+                        <div class="simple-chart">
+                            <div class="chart-bar" style="height: 40%;"></div>
+                            <div class="chart-bar" style="height: 50%;"></div>
+                            <div class="chart-bar" style="height: 60%;"></div>
+                            <div class="chart-bar" style="height: 70%;"></div>
+                            <div class="chart-bar" style="height: 80%;"></div>
+                            <div class="chart-bar" style="height: 90%;"></div>
+                            <div class="chart-bar" style="height: 100%;"></div>
+                        </div>
                     </div>
 
                     <!-- Problem Distribution & Badges -->
@@ -143,7 +149,11 @@
                         <div class="chart-card problems-card">
                             <h3>Problems Solved</h3>
                             <div class="doughnut-container">
-                                <canvas id="problemsChart"></canvas>
+                                <div class="doughnut-chart">
+                                    <div class="doughnut-segment easy"></div>
+                                    <div class="doughnut-segment medium"></div>
+                                    <div class="doughnut-segment hard"></div>
+                                </div>
                                 <div class="doughnut-center">
                                     <div class="doughnut-value">383</div>
                                     <div class="doughnut-label">Solved</div>
@@ -172,18 +182,10 @@
                                 <span class="badge-count">4</span>
                             </div>
                             <div class="badges-grid">
-                                <div class="badge-item">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="badge-item">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="badge-item">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <div class="badge-item">
-                                    <i class="fas fa-lightning-bolt"></i>
-                                </div>
+                                <div class="badge-item">⭐</div>
+                                <div class="badge-item">🏆</div>
+                                <div class="badge-item">🔥</div>
+                                <div class="badge-item">⚡</div>
                             </div>
                             <p class="recent-badge">Most Recent Badge: 100 Days Badge 2024</p>
                         </div>
@@ -337,19 +339,19 @@
                     <p class="contact-intro">Feel free to reach out for collaboration or just a friendly hello!</p>
                     <div class="contact-methods">
                         <a href="mailto:bezzavarapupaulbabu@gmail.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
+                            <span class="contact-icon">✉️</span>
                             <span>Email: bezzavarapupaulbabu@gmail.com</span>
                         </a>
                         <a href="https://www.linkedin.com/in/paulbabu-bezzavarapu-157437254/" target="_blank" class="contact-item">
-                            <i class="fab fa-linkedin"></i>
+                            <span class="contact-icon">in</span>
                             <span>LinkedIn</span>
                         </a>
                         <a href="https://leetcode.com/u/bezzavarapupaulbabu/" target="_blank" class="contact-item">
-                            <i class="fas fa-code"></i>
+                            <span class="contact-icon">💻</span>
                             <span>LeetCode</span>
                         </a>
                         <a href="https://github.com/paulbabu" target="_blank" class="contact-item">
-                            <i class="fab fa-github"></i>
+                            <span class="contact-icon">⚙️</span>
                             <span>GitHub</span>
                         </a>
                     </div>
